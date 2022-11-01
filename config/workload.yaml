@@ -5,9 +5,10 @@ metadata:
   labels:
     apps.tanzu.vmware.com/workload-type: web
     app.kubernetes.io/part-of: tanzu-csharp-weatherforecast
+    apps.tanzu.vmware.com/has-tests: false
 spec:
   source:
     git:
-      url: https://github.com/sample-accelerators/csharp-weatherforecast
+      url: https://github.com/kubeages/tanzu-csharp-weatherforecast.git
       ref:
         branch: main

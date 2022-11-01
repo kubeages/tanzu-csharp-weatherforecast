@@ -1,12 +1,15 @@
 # C# Sample Accelerator
 
+> **NOTE** This repo has been archived and the sample has moved to:  
+> https://github.com/vmware-tanzu/application-accelerator-samples/tree/main/weatherforecast-csharp
+
 A sample accelerator for C#.
 
-This sample is the Weather Forecast RESTful API application made available from Microsoft.  It provides a single endpoint, `/weatherforecast`, that returns a mock forecast for the upcoming several days.
+This sample is the Weather Forecast RESTful API application made available from Microsoft.
 
 The starting source for this sample was created using:
 ```
-$ dotnet new webapi --language C#
+$ dotnet new webapi --framework net6.0 --language C#
 ```
 
 ## Running the app locally
@@ -16,12 +19,6 @@ To run the sample application:
 ```
 $ dotnet run
 ```
-
-| URL | Description |
-| --- | --- |
-| http://localhost:5000/swagger | API Documentation |
-| http://localhost:5000/weatherforecast | Weather Forecast Endpoint |
-
 
 ## Deploying to Kubernetes as a TAP workload with Tanzu CLI
 
@@ -38,9 +35,9 @@ tanzu apps workload apply -f config/workload.yaml
 If you would like deploy the code from your local working directory you can use the following command:
 
 ```
-tanzu apps workload create tanzu-csharp-weatherforecast -f config/workload.yaml \
+tanzu apps workload create sample-app -f config/workload.yaml \
   --local-path . \
-  --source-image <REPOSITORY-PREFIX>/tanzu-csharp-weatherforecast-source \
+  --source-image <REPOSITORY-PREFIX>/sample-app-source \
   --type web
 ```
 
@@ -49,7 +46,7 @@ tanzu apps workload create tanzu-csharp-weatherforecast -f config/workload.yaml 
 Determine the URL to use for the accessing the app by running:
 
 ```
-tanzu apps workload get tanzu-csharp-weatherforecast
+tanzu apps workload get sample-app
 ```
 
 To access the deployed app use the URL shown under "Workload Knative Services" and append the endpoint `/weatherforecast` to that URL.
